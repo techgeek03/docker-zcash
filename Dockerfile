@@ -24,7 +24,7 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -P /src/zcash
+RUN mkdir -p /src/zcash
 WORKDIR /src/zcash
 
 RUN git clone https://github.com/zcash/zcash.git /src/zcash
