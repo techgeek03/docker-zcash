@@ -5,7 +5,7 @@ services:
     zcash01:
         container_name: zcash01
         image: signitsoft/zcash        
-        command: /src/zcash/src/zcashd --daemon
+        command: ./src/zcash/src/zcashd --daemon
         volumes:
             - /docker/volumes/zcash/zcash01/root:/root/
             - /docker/volumes/zcash/zcash01/src:/src/zcash/src/
