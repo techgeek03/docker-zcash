@@ -38,4 +38,4 @@ RUN echo "rpcpassword=`head -c 32 /dev/urandom | base64`" >>~/.zcash/zcash.conf
 
 EXPOSE 18232
 
-ENTRYPOINT ["/src/zcash/src/zcashd", "--daemon"]
+#ENTRYPOINT ["/src/zcash/src/zcashd", "--daemon"]
