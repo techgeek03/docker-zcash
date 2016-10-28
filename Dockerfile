@@ -4,9 +4,25 @@ MAINTAINER Gordan Jandreoski
 ENV DEBIAN_FRONTEND noninteractive
 
 # Usual update / upgrade
-RUN apt-get -y install build-essential pkg-config libc6-dev m4 g++-multilib \
-      autoconf libtool ncurses-dev unzip git python \
-      zlib1g-dev wget bsdmainutils automake
+RUN apt-get update && \
+    apt-get -y -qq upgrade && \
+    apt-get -y install  build-essential \
+                        pkg-config \
+                        libc6-dev \
+                        m4 \
+                        g++-multilib \
+                        autoconf \
+                        libtool \
+                        ncurses-dev \
+                        unzip \
+                        git \
+                        python \
+                        zlib1g-dev \
+                        wget \
+                        bsdmainutils \
+                        automake && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -P /src/zcash
 WORKDIR /src/zcash
