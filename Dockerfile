@@ -35,3 +35,7 @@ RUN mkdir -p ~/.zcash
 RUN echo "addnode=mainnet.z.cash" >~/.zcash/zcash.conf
 RUN echo "rpcuser=username" >>~/.zcash/zcash.conf
 RUN echo "rpcpassword=`head -c 32 /dev/urandom | base64`" >>~/.zcash/zcash.conf
+
+EXPOSE 18232
+
+ENTRYPOINT ["/src/zcash/src/zcashd", "--daemon"]

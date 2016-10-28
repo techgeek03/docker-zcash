@@ -1,0 +1,18 @@
+version: '2'
+
+services:   
+
+    zcash01:
+        container_name: zcash01
+        image: signitsoft/zcash        
+        #command: /root/conf/run.sh
+        volumes:
+            - /docker/volumes/zcash/zcash01/home:/home/root/.zcash/
+            - /docker/volumes/zcash/zcash01/src:/src/zcash/src/
+        ports:
+            - 18232:18232
+
+networks:
+  default:
+    external:
+      name: zcash
