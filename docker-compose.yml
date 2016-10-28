@@ -7,7 +7,7 @@ services:
         image: signitsoft/zcash        
         command: /src/zcash/src/zcashd --daemon
         volumes:
-            - /docker/volumes/zcash/zcash01/home:/home/root/.zcash/
+            - /docker/volumes/zcash/zcash01/root:/root/
             - /docker/volumes/zcash/zcash01/src:/src/zcash/src/
         ports:
             - 18232:18232
