@@ -8,9 +8,9 @@ WORKDIR /zcash
 
 # Usual update / upgrade
 RUN apt-get update && \
-    apt-get -y install apt-transport-https
-
-RUN apt-get -y install wget
+    apt-get -y install  apt-transport-https \
+                        wget \
+                        git
 
 RUN wget -qO - https://apt.z.cash/zcash.asc | apt-key add -
 RUN echo "deb [arch=amd64] https://apt.z.cash/ jessie main" | tee /etc/apt/sources.list.d/zcash.list
@@ -18,6 +18,9 @@ RUN echo "deb [arch=amd64] https://apt.z.cash/ jessie main" | tee /etc/apt/sourc
 RUN apt-get update && \
     apt-get -y install zcash
 
+RUN git clone https://github.com/zcash/zcash.git
+RUN cd zcash/
+RUN git checkout v1.0.1
 RUN ./zcutil/fetch-params.sh
 
 RUN mkdir -p ~/.zcash
