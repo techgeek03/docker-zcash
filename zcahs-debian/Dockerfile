@@ -10,6 +10,8 @@ WORKDIR /zcash
 RUN apt-get update && \
     apt-get -y install apt-transport-https
 
+RUN apt-get -y install wget
+
 RUN wget -qO - https://apt.z.cash/zcash.asc | sudo apt-key add -
 RUN echo "deb [arch=amd64] https://apt.z.cash/ jessie main" | sudo tee /etc/apt/sources.list.d/zcash.list
 
