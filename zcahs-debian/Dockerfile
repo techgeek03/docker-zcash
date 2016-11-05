@@ -18,8 +18,9 @@ RUN echo "deb [arch=amd64] https://apt.z.cash/ jessie main" | tee /etc/apt/sourc
 RUN apt-get update && \
     apt-get -y install zcash
 
+WORKDIR /zcash
 RUN git clone https://github.com/zcash/zcash.git
-RUN cd zcash/
+WORKDIR /zcash/zcash/
 RUN git checkout v1.0.1
 RUN ./zcutil/fetch-params.sh
 
